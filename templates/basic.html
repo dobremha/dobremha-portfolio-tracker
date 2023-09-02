@@ -107,22 +107,26 @@
         </tr>
         <!-- Insert your coin data here -->
         <!-- Example row: -->
+
+        {% for coin in coins %}
         <tr>
             <td>
                 <div class="coin-info">
-                    <img src="{{ url_for('static', filename='APT.png') }}" loading="lazy" decoding="async" fetchpriority="low" alt="APT Logo">
-                    <span>Aptos (APT)</span>
+                    <img src="{{ url_for('static', filename=coin['coin'] ~ '.png') }}" loading="lazy" decoding="async" fetchpriority="low" alt="APT Logo">
+                    <span>{{coin['description']}}<br>{{coin['coin']}}</span>
                 </div>
             </td>
-            <td>$5.5247</td>
-            <td>$382.30<br>69.2 APT</td>
-            <td>$6.5085</td>
-            <td>- $67.43<br>14.97%</td>
+            <td>{{coin['price']}}</td>
+            <td>{{coin['holdings_usdt']}}<br>{{coin['holdings_asset']}}</td>
+            <td>{{coin['avg_puy_price']}}</td>
+            <td>{{coin['p_l_usdt']}}<br>{{coin['p_l_proc']}}</td>
             <td class="button-container">
                 <button class="custom-button">Add</button>
                 <button class="custom-button">Edit</button>
             </td>
         </tr>
+        {% endfor %}
+
         <!-- Repeat the above row structure for each coin -->
     </table>
 </body>
