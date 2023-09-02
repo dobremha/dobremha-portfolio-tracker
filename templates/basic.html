@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ titlu_pagina }}</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            text-align: center;
+            padding: 8px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+        }
+
+
+        th:nth-child(1),
+        td:nth-child(1) {
+            width: 26%;
+        }
+        th:nth-child(2),
+        td:nth-child(2) {
+            width: 16%;
+        }
+        th:nth-child(3),
+        td:nth-child(3) {
+            width: 16%;
+        }
+        th:nth-child(4),
+        td:nth-child(4) {
+            width: 16%;
+        }
+        th:nth-child(5),
+        td:nth-child(5) {
+            width: 16%;
+        }
+        th:nth-child(6),
+        td:nth-child(6) {
+            width: 10%;
+        }
+
+        /* Adjust image size and make it circular */
+        td img {
+            max-width: 25px; /* Change the size as needed */
+            height: auto;
+            display: block;
+            border-radius: 50%; /* Creates a circular shape */
+            margin-right: 5px; /* Reduce the top margin */
+        }
+
+        /* Style for coin name and symbol */
+        .coin-info {
+            display: flex;
+            align-items: center;
+        }
+
+        /* Style for buttons */
+        .button-container {
+            text-align: right; /* Align buttons to the right */
+        }
+
+        .custom-button {
+            background-color: #007bff;
+            color: #fff;
+            padding: 5px 10px;
+            border: none;
+            cursor: pointer;
+            margin-left: 20px; /* Add space between buttons and right-align them */
+        }
+
+        .custom-button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ wallet }}</h1>
+    <table>
+        <tr>
+            <th>Asset</th>
+            <th>Price(24h%)</th>
+            <th>Holdings</th>
+            <th>Avg. Buy Price</th>
+            <th>Profit/Loss</th>
+            <th>Actions</th>            
+        </tr>
+        <!-- Insert your coin data here -->
+        <!-- Example row: -->
+        <tr>
+            <td>
+                <div class="coin-info">
+                    <img src="{{ url_for('static', filename='APT.png') }}" loading="lazy" decoding="async" fetchpriority="low" alt="APT Logo">
+                    <span>Aptos (APT)</span>
+                </div>
+            </td>
+            <td>$5.5247</td>
+            <td>$382.30<br>69.2 APT</td>
+            <td>$6.5085</td>
+            <td>- $67.43<br>14.97%</td>
+            <td class="button-container">
+                <button class="custom-button">Add</button>
+                <button class="custom-button">Edit</button>
+            </td>
+        </tr>
+        <!-- Repeat the above row structure for each coin -->
+    </table>
+</body>
+</html>
